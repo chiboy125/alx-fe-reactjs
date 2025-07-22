@@ -36,8 +36,33 @@ const useRecipeStore = create((set) => ({
       };
     }),
 
-  // ✅ New features below
+  // ✅ Added updateRecipe
+  updateRecipe: (updatedRecipe) =>
+    set((state) => {
+      const updatedRecipes = state.recipes.map((recipe) =>
+        recipe.id === updatedRecipe.id ? updatedRecipe : recipe
+      );
+      return {
+        recipes: updatedRecipes,
+        filteredRecipes: updatedRecipes.filter((recipe) =>
+          recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+        ),
+      };
+    }),
 
+  // ✅ Added deleteRecipe
+  deleteRecipe: (recipeId) =>
+    set((state) => {
+      const updatedRecipes = state.recipes.filter((recipe) => recipe.id !== recipeId);
+      return {
+        recipes: updatedRecipes,
+        filteredRecipes: updatedRecipes.filter((recipe) =>
+          recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+        ),
+      };
+    }),
+
+  // ✅ Favorites and Recommendations
   addFavorite: (recipeId) =>
     set((state) => ({
       favorites: [...new Set([...state.favorites, recipeId])],
