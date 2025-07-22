@@ -2,7 +2,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import RecipeList from './components/RecipeList';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecipeDetails from './components/RecipeDetails';
-import SearchBar from './components/SearchBar'; // ✅ import it
+import SearchBar from './components/SearchBar';
+import FavoritesList from './components/FavoritesList'; // ✅ add this
+import RecommendationsList from './components/RecommendationsList'; // ✅ add this
 
 function App() {
   return (
@@ -13,8 +15,10 @@ function App() {
           element={
             <>
               <AddRecipeForm />
-              <SearchBar /> {/* ✅ insert here above the list */}
+              <SearchBar />
               <RecipeList />
+              <FavoritesList /> {/* ✅ new */}
+              <RecommendationsList /> {/* ✅ new */}
             </>
           }
         />
