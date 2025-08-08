@@ -10,7 +10,7 @@ const UserProfile = ({ name, bio, image }) => {
       <img
         src={image}
         alt={name}
-        className="w-32 h-32 mx-auto rounded-full object-cover 
+        className="w-32 h-32 sm:w-24 sm:h-24 md:w-36 md:h-36 mx-auto rounded-full object-cover 
                    transition-transform duration-300 ease-in-out hover:scale-110"
       />
       <h2
