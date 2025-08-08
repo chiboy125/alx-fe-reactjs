@@ -14,12 +14,12 @@ const UserProfile = ({ name, bio, image }) => {
                    transition-transform duration-300 ease-in-out hover:scale-110"
       />
       <h2
-        className="mt-4 text-lg md:text-xl font-semibold text-gray-800 
+        className="mt-4 my-4 text-lg md:text-xl font-semibold text-gray-800 text-blue-800
                    transition-colors duration-300 ease-in-out hover:text-blue-500"
       >
         {name}
       </h2>
-      <p className="mt-2 text-sm text-gray-600">{bio}</p>
+      <p className="mt-2 my-4 text-sm text-gray-600 text-blue-800">{bio}</p>
     </div>
   );
 };
