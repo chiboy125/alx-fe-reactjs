@@ -3,7 +3,8 @@ import React from "react";
 const UserProfile = ({ name, bio, image }) => {
   return (
     <div
-      className="max-w-sm mx-auto bg-white rounded-lg shadow-md p-6 sm:p-4 md:p-8 text-center 
+      className="max-w-xs md:max-w-sm mx-auto bg-white rounded-lg shadow-md 
+                 p-6 sm:p-4 md:p-8 text-center 
                  transition-shadow duration-300 ease-in-out hover:shadow-xl"
     >
       <img
@@ -13,12 +14,12 @@ const UserProfile = ({ name, bio, image }) => {
                    transition-transform duration-300 ease-in-out hover:scale-110"
       />
       <h2
-        className="mt-4 text-xl font-semibold text-gray-800 
+        className="mt-4 text-lg md:text-xl font-semibold text-gray-800 
                    transition-colors duration-300 ease-in-out hover:text-blue-500"
       >
         {name}
       </h2>
-      <p className="mt-2 text-gray-600">{bio}</p>
+      <p className="mt-2 text-sm text-gray-600">{bio}</p>
     </div>
   );
 };
