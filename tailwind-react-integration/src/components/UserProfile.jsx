@@ -3,7 +3,7 @@ import React from "react";
 const UserProfile = ({ name, bio, image }) => {
   return (
     <div
-      className="max-w-xs md:max-w-sm mx-auto bg-white rounded-lg shadow-md 
+      className="max-w-xs md:max-w-sm mx-auto bg-gray-100 rounded-lg shadow-lg my-20
                  p-6 sm:p-4 md:p-8 text-center 
                  transition-shadow duration-300 ease-in-out hover:shadow-xl"
     >
