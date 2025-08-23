@@ -1,28 +1,26 @@
+// src/components/formikForm.jsx
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const validationSchema = Yup.object({
   username: Yup.string().required("Username is required"),
-  email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
   password: Yup.string().required("Password is required"),
 });
 
-export default function FormikForm() {
+const FormikForm = () => {
   return (
-    <div>
-      <h2>Formik Registration Form</h2>
-      <Formik
-        initialValues={{ username: "", email: "", password: "" }}
-        validationSchema={validationSchema}
-        onSubmit={(values, { resetForm }) => {
-          console.log("Formik Form Submitted:", values);
-          alert("User registered successfully!");
-          resetForm();
-        }}
-      >
+    <Formik
+      initialValues={{ username: "", email: "", password: "" }}
+      validationSchema={validationSchema}
+      onSubmit={(values, { resetForm }) => {
+        console.log("Formik form submitted:", values);
+        alert("Formik Registration successful!");
+        resetForm();
+      }}
+    >
+      {() => (
         <Form>
           <div>
             <label>Username:</label>
@@ -44,7 +42,9 @@ export default function FormikForm() {
 
           <button type="submit">Register</button>
         </Form>
-      </Formik>
-    </div>
+      )}
+    </Formik>
   );
-}
+};
+
+export default FormikForm;
