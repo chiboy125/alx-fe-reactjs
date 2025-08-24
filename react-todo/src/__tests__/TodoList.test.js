@@ -1,19 +1,23 @@
-// src/components/TodoList.test.js
-import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import TodoList from "./TodoList";
+import TodoList from "../components/TodoList";
 
-describe("TodoList Component", () => {
-  test("renders no todos message when list is empty", () => {
-    render(<TodoList todos={[]} />);
-    expect(screen.getByText(/no todos available/i)).toBeInTheDocument();
-  });
+test("renders TodoList with default todos", () => {
+  render(<TodoList />);
+  expect(screen.getByText("Learn React")).toBeInTheDocument();
+  expect(screen.getByText("Build a Todo App")).toBeInTheDocument();
+});
 
-  test("renders todos when provided", () => {
-    const todos = ["Learn React", "Write Tests"];
-    render(<TodoList todos={todos} />);
-    expect(screen.getByText("Learn React")).toBeInTheDocument();
-    expect(screen.getByText("Write Tests")).toBeInTheDocument();
-  });
+test("allows user to add a new todo", () => {
+  render(<TodoList />);
+  
+  const input = screen.getByPlaceholderText("Add a new todo");
+  const button = screen.getByText("Add Todo");
+
+  // simulate typing and clicking
+  fireEvent.change(input, { target: { value: "New Todo Item" } });
+  fireEvent.click(button);
+
+  // check if the new todo appears
+  expect(screen.getByText("New Todo Item")).toBeInTheDocument();
 });
